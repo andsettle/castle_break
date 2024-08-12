@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_12_040153) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_12_050244) do
   create_table "ai_states", force: :cascade do |t|
     t.integer "enemy_id", null: false
     t.string "state"
@@ -82,6 +82,31 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_12_040153) do
     t.index ["game_id"], name: "index_rounds_on_game_id"
   end
 
+  create_table "scores", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "game_id", null: false
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_scores_on_game_id"
+    t.index ["user_id"], name: "index_scores_on_user_id"
+  end
+
+  create_table "towers", force: :cascade do |t|
+    t.string "type"
+    t.integer "level"
+    t.integer "position_x"
+    t.integer "position_y"
+    t.integer "damage"
+    t.integer "range"
+    t.integer "game_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_towers_on_game_id"
+    t.index ["user_id"], name: "index_towers_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -100,4 +125,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_12_040153) do
   add_foreign_key "resources", "games"
   add_foreign_key "resources", "users"
   add_foreign_key "rounds", "games"
+  add_foreign_key "scores", "games"
+  add_foreign_key "scores", "users"
+  add_foreign_key "towers", "games"
+  add_foreign_key "towers", "users"
 end
