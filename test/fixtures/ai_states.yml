@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enemy: one
+  state: MyString
+  target_id: 1
+  current_action: MyString
+  last_action_time: 2024-08-11 23:48:18
+
+two:
+  enemy: two
+  state: MyString
+  target_id: 1
+  current_action: MyString
+  last_action_time: 2024-08-11 23:48:18

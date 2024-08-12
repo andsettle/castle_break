@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  enemy_count: 1
+  spawn_time: 2024-08-12 00:00:07
+  game: one
+
+two:
+  number: 1
+  enemy_count: 1
+  spawn_time: 2024-08-12 00:00:07
+  game: two
