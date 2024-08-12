@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a href="<%= root_path %>">Castle_Break</a>
+  </div>
+  <div class="navbar-links">
+    <%= link_to "Home", root_path %>
+    <%= link_to "About", "#about" %>
+    <%= link_to "Contact", "#contact" %>
+    <% if current_user %>
+      <%= link_to "Profile", "#" %>
+      <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Login", login_path %>
+      <%= link_to "Sign Up", new_user_path %>
+    <% end %>
+  </div>
+</nav>

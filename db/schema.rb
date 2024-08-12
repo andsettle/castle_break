@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_12_050244) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_12_063106) do
   create_table "ai_states", force: :cascade do |t|
     t.integer "enemy_id", null: false
     t.string "state"
@@ -105,16 +105,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_12_050244) do
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_towers_on_game_id"
     t.index ["user_id"], name: "index_towers_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "encrypted_password"
-    t.integer "towers_placed"
-    t.integer "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "ai_states", "enemies"

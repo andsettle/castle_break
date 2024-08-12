@@ -1,10 +1,6 @@
 class User < ApplicationRecord
-  has_many :towers
-  has_many :player_sessions
-  has_many :games, through: :player_sessions
-  has_many :scores
-  has_many :resourcs
+  has_secure_password
 
-  # Authentication
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: { minimum: 6 }
 end
