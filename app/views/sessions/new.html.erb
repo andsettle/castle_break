@@ -1,19 +1,20 @@
 <h1>Log In</h1>
 
-<%= form_with url: login_path, local: true do %>
+<%= form_with url: login_path, local: true do |form| %>
   <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
   </div>
 
   <div>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
   </div>
 
   <div>
-    <%= submit_tag "Log In" %>
+    <%= form.submit "Log In" %>
   </div>
 <% end %>
 
-<%= link_to "Sign Up", new_user_path %>
+<%= link_to "Sign up", signup_path %>
+
